@@ -142,7 +142,9 @@ html, body {
     font-family: sans-serif; 
 }
 
-
+#nav-close{
+  display: none;
+}
 .border2{
     border: 2px solid black;
     background-color: black;
@@ -156,6 +158,28 @@ html, body {
     
     
 }
+
+.cart {
+  position: relative;
+  display: inline-block;
+}
+
+#cart-count {
+  position: absolute;
+  top: -9px;
+  left: -290px;
+  background-color: red;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 
 .cart img{
@@ -604,29 +628,40 @@ html, body {
 
 .actioncall h1{
     color: white;
-    font-family: 'The October Two', sans-serif;
-    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
     font-style: normal;
-    margin-left: 300px;
+    font-variation-settings:
+    "wdth" 100;
+    margin-left: 500px;
+    animation: vibrate-1 5.5s ease-out infinite;
 
 
 }
+
+@keyframes vibrate-1{0%{-webkit-transform:translate(0);transform:translate(0)}20%{-webkit-transform:translate(-2px,2px);transform:translate(-2px,2px)}40%{-webkit-transform:translate(-2px,-2px);transform:translate(-2px,-2px)}60%{-webkit-transform:translate(2px,2px);transform:translate(2px,2px)}80%{-webkit-transform:translate(2px,-2px);transform:translate(2px,-2px)}100%{-webkit-transform:translate(0);transform:translate(0)}}@keyframes vibrate-1{0%{-webkit-transform:translate(0);transform:translate(0)}20%{-webkit-transform:translate(-2px,2px);transform:translate(-2px,2px)}40%{-webkit-transform:translate(-2px,-2px);transform:translate(-2px,-2px)}60%{-webkit-transform:translate(2px,2px);transform:translate(2px,2px)}80%{-webkit-transform:translate(2px,-2px);transform:translate(2px,-2px)}100%{-webkit-transform:translate(0);transform:translate(0)}}
 
 .actioncall p{
     color: white;
-    font-family: 'Microsoft Sans Serif', sans-serif;
-    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
     font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
     margin-top: 20px;
-    margin-left: 230px;
+    margin-left: 480px;
 }
+
+
 
 .actioncall button{
     width: 150px;
     height: 50px;
     border-radius: 40px;
     border: none;
-    margin-left: 550px;
+    margin-left: 580px;
 
     position: relative;
     overflow: hidden;
@@ -679,7 +714,7 @@ html, body {
 
 .bannersection{
     border: 2px solid black;
-    background-color: black;
+    background-;
     padding: 100px;
 }
 
@@ -703,7 +738,10 @@ html, body {
     border: 2px solid black;
     background-color: blue;
     padding: 100px;
+    animation: kenburns-top ease-in-out;
 }
+
+@keyframes kenburns-top{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0);-webkit-transform-origin:50% 16%;transform-origin:50% 16%}100%{-webkit-transform:scale(1.25) translateY(-15px);transform:scale(1.25) translateY(-15px);-webkit-transform-origin:top;transform-origin:top}}@keyframes kenburns-top{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0);-webkit-transform-origin:50% 16%;transform-origin:50% 16%}100%{-webkit-transform:scale(1.25) translateY(-15px);transform:scale(1.25) translateY(-15px);-webkit-transform-origin:top;transform-origin:top}}
 
 /* .footer{
     border: 10px;
@@ -1257,6 +1295,7 @@ html, body {
   pointer-events: none;
   transform: translateY(8px);
   transition: opacity 0.22s ease, transform 0.22s ease;
+  display: none;
 }
 
 
@@ -1294,6 +1333,27 @@ html, body {
     
 }
 
+.cart {
+  position: relative;
+  display: inline-block;
+}
+
+#cart-count {
+  position: absolute;
+  top: -9px;
+  left: 109px;
+  background-color: red;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .cart img{
     width: 30px;
@@ -1315,9 +1375,76 @@ html, body {
     width: 30px;
 }
 
-nav-list.active {
+/* nav-list.active {
+    display: block;
+  } */
+
+
+  #nav-list {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;             /* anchored to top-right where button is */
+    width: 45%;
+    height: 70vh;
+    background-color: #fff;
+    padding: 1rem 0.5rem;
+    z-index: 999;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+     /* Start from top-right, hidden */
+    transform: translateX(100%) translateY(-100%);
+    transform-origin: top right;   /* animation starts from top-right corner */
+    transition: transform 0.4s ease;
+    opacity: 0;
+    border-radius: 5px;
+  }
+
+  #nav-list.nav-open {
+    transform: translateX(0) translateY(0);  /* slides into view */
+    opacity: 1;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+  }
+
+
+  #nav-list li {
+    width: 100%;
+    padding: 0.0rem 0.0rem;
+    border-bottom: 1px solid #eee;
+    margin-top: -20px;
+  }
+
+  #nav-list li a {
+    font-size: 1rem;
+    color: #000;
+    text-decoration: none;
+  }
+
+  #nav-close {
+    display: block !important;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #000;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+    margin-top: 0px;
+  }
+
+  #nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+  }
+
+  #nav-overlay.active {
     display: block;
   }
+
 
 .newsection{
     background-color: black;
@@ -1339,7 +1466,7 @@ nav-list.active {
 .shopnew h1{
     color: white;
     margin-left: -60px;
-    margin-top: -40px;
+    margin-top: -30px;
     font-family: "Crimson Text", serif;
     font-weight: 400;
     font-style: normal;
@@ -1436,6 +1563,7 @@ nav-list.active {
       justify-content: space-between;
       padding: 3rem 2rem 1.5rem;
       border-bottom: 0.5px solid rgba(240, 237, 230, 0.12);
+      margin-top: -20px;
     }
  
     .section-subtitle {
@@ -1612,6 +1740,7 @@ nav-list.active {
       margin-top: 2rem;
       border-top: 0.5px solid rgba(240, 237, 230, 0.08);
       border-bottom: 0.5px solid rgba(240, 237, 230, 0.12);
+      margin-top: -40px;
     }
  
     /* ── Filter Buttons ── */
@@ -1736,20 +1865,11 @@ nav-list.active {
     font-family: 'The October Two', sans-serif;
     font-weight: 400;
     font-style: normal;
-    margin-left: 10px;
+    margin-left: 90px;
     font-size: 20px;
     margin-top: 50px;
 
 
-}
-
-.actioncall p{
-    color: white;
-    font-family: 'The October Two', sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin-top: 20px;
-    margin-left: 230px;
 }
    
 
@@ -1759,7 +1879,7 @@ nav-list.active {
     font-weight: 400;
     font-style: normal;
     margin-top: 20px;
-    margin-left: 30px;
+    margin-left: 40px;
     margin-right: 20px;
 }
 

@@ -19,15 +19,6 @@
     
 
 </head>
-
-<script>
-  const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("nav-menu");
-
-  toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-  });
-</script>
 <body>
     <main>  
          <!-- Section 1 -->
@@ -51,6 +42,7 @@
                         </div> -->
 
                         <ul id="nav-list">
+                          <button id="nav-close">✕</button>   <!-- must be here -->
                             <li>
                                 <a href="#">New Arrival</a>
                             </li>
@@ -117,6 +109,7 @@
                     <div class="icons">
                         <div class="cart">
                            <a href=""> <img src="/images/icons8-cart-2.gif" alt=""></a>
+                           <span id="cart-count">0</span>  <!-- added this -->
                         </div>
 
                         <div class="account">
@@ -124,7 +117,7 @@
                         </div>
 
                          <div class="menu">
-                            <a href="" id="menu-toggle"><img src="/images/icons8-menu-50.png" alt=""></a>
+                          <button id="menu-toggle"><img src="/images/icons8-menu-50.png" alt=""></button>
                         </div>
                         
                     </div>
@@ -251,7 +244,7 @@
     <div class="section-divider">
       <div>
         <p class="section-subtitle">Featured Collection</p>
-        <h2 class="section-title">All <span>Trending Now</span></h2>
+        <h2 class="section-title">All <span>Collection</span></h2>
       </div>
       <a href="#" class="shop-now-link">Best Sellers</a>
     </div>
@@ -406,22 +399,22 @@
 
 
         <div class="actioncall">
-            <h1>Same day delivery on order within Lagos</h1>
-            <p>Get your order on same day delivery if you place an order before 2:00pm. You can get it same day within Lagos only!</p>
-            <button><a href="#">Order Now</a></button>
+            <h1>Don’t Miss the Drop</h1>
+            <p>Limited pieces. No restocks. Once it’s gone, it’s gone.</p>
+            <button><a href="#">Shop the Drop</a></button>
             
         </div>
 
-        <div class="bannersection">
+        <!-- <div class="bannersection">
             <div class="subscribe">              
-                <h1>Join our community</h1>
+                <h1>Join the Movement.</h1>
                 <h1>Get Exclusive offers</h1>
-                <p>Be the first to know about new arrivals, special offers, and exclusive deals.</p>
-                <p>Subscribe and get insider access to our latest collections.</p>
+                <p>Tap in for drops, deals, and street vibes.</p>
+                <button><a href="#">Join Our VIP List</a></button>
             </div>
         </div>
 
-        <!-- <div class="newslettersection">
+        <div class="newslettersection">
             <h1>Subcribe to our newsletter</h1>
             <p>We Appreciate your contribution, Kindly send us a message.</p>
 
@@ -551,39 +544,7 @@
     
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-
-
-<script>
-    function handleSignup() {
-      const input = document.getElementById('email-input');
-      const form = document.getElementById('newsletter-form');
-      const success = document.getElementById('newsletter-success');
-      const email = input.value.trim();
- 
-      // Basic email validation
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        input.style.borderColor = 'rgba(10,10,10,0.6)';
-        input.placeholder = 'Please enter a valid email';
-        input.value = '';
-        setTimeout(() => {
-          input.style.borderColor = '';
-          input.placeholder = 'Enter your email address';
-        }, 2000);
-        return;
-      }
- 
-      // Show success state
-      form.style.display = 'none';
-      success.style.display = 'flex';
-    }
- 
-    // Allow Enter key to submit
-    document.getElementById('email-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') handleSignup();
-    });
-  </script>
-
+<script src="script.js"></script>
+<div id="nav-overlay"></div>
 </body>
 </html>
