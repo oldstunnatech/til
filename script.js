@@ -63,3 +63,4 @@ function updateCartCount() {
   cartCount.textContent = total;
   cartCount.style.display = total === 0 ? 'none' : 'flex';
 }
+
